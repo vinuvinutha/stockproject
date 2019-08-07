@@ -1,3 +1,49 @@
-<p>
-  stock works!
-</p>
+
+
+
+
+
+            
+
+
+<input type="text" name="" value=""  placeholder="Please enter the stock name" class = "textb" #stockName>
+
+
+<button type= "button" name="button" class= "buttonb"(click)="this.getstock(stockName.value, status)">Search</button>
+
+<div class="currentStock">
+  <table border="1" class="tableb" >
+      
+      <th>STOCKNAME</th>
+      
+      <th >REPORT OF DAY 1</th>
+      <th>REPORT OF DAY 2</th>
+      <th>REPORT OF DAY 3</th>
+      <th>REPORT OF DAY 4</th>
+    <tr *ngIf="this.currentstockName !== undefined">
+      <td >{{this.currentstockName.stockName}} </td>
+      <td *ngFor="let v of this.currentstockName.values" > {{v}} </td>
+      </tr>
+  
+        </table>
+        </div>
+
+<div class= "pastSearches">
+  <p class="ps"> Past Search </p>
+  <table border="1" class="tableb1" >
+      <th>STOCKNAME</th>
+      <th>TIME
+      </th>
+      <th>REPORT OF DAY 1</th>
+      <th>REPORT OF DAY 2</th>
+      <th>REPORT OF DAY 3</th>
+      <th>REPORT OF DAY 4</th>
+<tr *ngFor="let paststock of this.pastSearchValue">
+      <td>{{paststock.stockName}} </td>
+     
+    <!--<td>{{pastWeather.searchTime[0]}}{{pastWeather.searchTime[1]}}{{pastWeather.searchTime[2]}}{{pastWeather.searchTime[3]}}{{pastWeather.searchTime[4]}}</td>-->
+    <td *ngIf = "paststock.searchTime !== null">{{paststock.searchTime}}</td>
+      <td *ngFor="let v of this.paststock.values" > {{v}} </td>
+      </tr>
+        </table>
+        </div>
